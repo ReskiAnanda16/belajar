@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <header>
+        <h1></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="skills.html">Keterampilan</a></li>
+                <li><a href="hobbies.html">Hobi</a></li>
+                <li><a href="projects.html">Proyek</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="fade-in-section">
+            <h2>👋 TENTANG SAYA</h2>
+            <div class="about-content">
+                <img src="my.jpg" alt="Foto Saya" class="profile-photo">
+                <div class="about-text">
+                    <p>Halo! Saya Reski Ananda<strong> Merupakan Siswa Dari SMKS TEKNOLOGI INFORMATIKA BULUKUMBA</strong></p>
+                    <p>ALAMAT & TANGGAL LAHIR :<strong> Bulukumba, 16-Juni-2008</strong></p>
+                    <p>💡 Motto : "Setiap kegagalan adalah guru, setiap kesalahan adalah pelajaran, dan setiap usaha adalah langkah menuju dirimu yang lebih baik."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="fade-in-section">
+            <h2>🎓 RIWAYAT PENDIDIKAN</h2>
+            <div class="education-timeline">
+                <div class="education-item slide-in-left">
+                    <div class="education-year">2024-2025</div>
+                    <div class="education-content">
+                        <h3>SMKS TEKNOLOGI INFORMATIKA BULUKUMBA</h3>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="education-item slide-in-right">
+                    <div class="education-year">2023-2024</div>
+                    <div class="education-content">
+                        <h3>MTSN 1 BULUKUMBA</h3>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="education-item slide-in-left">
+                    <div class="education-year">2020-2021</div>
+                    <div class="education-content">
+                        <h3>SDN 327 MATEKKO</h3>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="education-item slide-in-right">
+                    <div class="education-year">2014-2015</div>
+                    <div class="education-content">
+                        <h3>TK AL-AMIN</h3>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in-section">
+            <h2>📞 KONTAK & SOSIAL MEDIA</h2>
+            <div class="contact-grid">
+                <div class="contact-item bounce-in">
+                    <span class="contact-icon">📧</span>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:contoh@email.com">reski.ananda1145@smk.belajar.id</a>
+                    </div>
+                </div>
+                <div class="contact-item bounce-in">
+                    <span class="contact-icon">📱</span>
+                    <div>
+                        <strong>Telepon</strong><br>
+                        <a href="tel:+621234567890">+62 085-656-797-299</a>
+                    </div>
+                </div>
+                <div class="contact-item bounce-in">
+                    <span class="contact-icon">💼</span>
+                    <div>
+                        <strong>LinkedIn</strong><br>
+                        <a href="https://linkedin.com/in/contoh" target="_blank">linkedin.com/in/contoh</a>
+                    </div>
+                </div>
+                <div class="contact-item bounce-in">
+                    <span class="contact-icon">🐙</span>
+                    <div>
+                        <strong>GitHub</strong><br>
+                        <a href="https://github.com/contoh" target="_blank">github.com/contoh</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; NANDA Portfolio</p>
+    </footer>
+
+    <script>
+        // Typing animation for header title
+        const title = document.querySelector('header h1');
+        const text = 'Reski Ananda Portfolio';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                title.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        // Start typing animation when page loads
+        window.addEventListener('load', typeWriter);
+
+        // Existing shake effect
+        document.addEventListener('click', function(event) {
+            event.target.classList.add('shake');
+            setTimeout(function() {
+                event.target.classList.remove('shake');
+            }, 500);
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe fade-in sections
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Intersection Observer for slide animations
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe slide-in elements
+        document.querySelectorAll('.slide-in-left, .slide-in-right').forEach(element => {
+            slideObserver.observe(element);
+        });
+
+        // Intersection Observer for bounce animations
+        const bounceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('bounce');
+                }
+            });
+        }, observerOptions);
+
+        // Observe bounce-in elements
+        document.querySelectorAll('.bounce-in').forEach(element => {
+            bounceObserver.observe(element);
+        });
+    </script>
+</body>
+</html>

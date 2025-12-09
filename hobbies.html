@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobi - Portfolio Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="skills.html">Keterampilan</a></li>
+                <li><a href="hobbies.html">Hobi</a></li>
+                <li><a href="projects.html">Proyek</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hobbies">
+            <h2>HOBI SAYA</h2>
+            <div class="hobby-item">
+                <h3 style="text-align:center;">BERENANG</h3>
+                <p></p>
+            </div>
+            <div class="hobby-item">
+                <h3 style="text-align:center;">SEPAK BOLA</h3>
+                <p></p>
+            </div>
+            <div class="hobby-item">
+                <h3 style="text-align:center;">BERMAIN MUSIK</h3>
+                <p></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Hobby Details -->
+    <div id="hobbyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; NANDA Portfolio</p>
+    </footer>
+
+    <script>
+        document.addEventListener('click', function(event) {
+            event.target.classList.add('shake');
+            setTimeout(function() {
+                event.target.classList.remove('shake');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
+
+  <script>
+        // Typing animation for header title
+        const title = document.querySelector('header h1');
+        const text = 'Reski Ananda Portfolio';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                title.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        // Start typing animation when page loads
+        window.addEventListener('load', typeWriter);
+
+        // Existing shake effect
+        document.addEventListener('click', function(event) {
+            event.target.classList.add('shake');
+            setTimeout(function() {
+                event.target.classList.remove('shake');
+            }, 500);
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe fade-in sections
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Intersection Observer for slide animations
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe slide-in elements
+        document.querySelectorAll('.slide-in-left, .slide-in-right').forEach(element => {
+            slideObserver.observe(element);
+        });
+
+        // Intersection Observer for bounce animations
+        const bounceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('bounce');
+                }
+            });
+        }, observerOptions);
+
+        // Observe bounce-in elements
+        document.querySelectorAll('.bounce-in').forEach(element => {
+            bounceObserver.observe(element);
+        });
+    </script>
+</body>
+</html>

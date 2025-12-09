@@ -1,0 +1,4 @@
+- [x] Add modal HTML structure to hobbies.html
+- [x] Add JavaScript to open modal on hobby item click
+- [x] Remove the "BERMAIN MUSIK" hobby item
+- [ ] Test the modal functionality
